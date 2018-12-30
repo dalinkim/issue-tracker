@@ -17,7 +17,7 @@ const IssueRow = (props) => (
         <td>{props.issue.owner}</td>
         <td>{props.issue.created.toDateString()}</td>
         <td>{props.issue.effort}</td>
-        <td>{props.issue.completionDate ? issue.completionDate.toDateString() : ''}</td>
+        <td>{props.issue.completionDate ? props.issue.completionDate.toDateString() : ''}</td>
         <td>{props.issue.title}</td>
     </tr>
 )
@@ -26,7 +26,7 @@ const IssueRow = (props) => (
 // Initialized a variable called issueRows, 
 // which means we need a full-fledged function with a return value.
 function IssueTable(props) {
-    const issueRows = this.props.issues.map(issue => <IssueRow key={issue.id} issue={issue} />)
+    const issueRows = props.issues.map(issue => <IssueRow key={issue.id} issue={issue} />)
     return (
         <table className="bordered-table">
             <thead>

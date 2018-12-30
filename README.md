@@ -74,3 +74,31 @@ Removed createTestIssue() and all the code used for creating a test issue.
 src/App.jsx; IssueRow and IssueTable re-written as functions rather than classes<br>
 Functions that take in props and just renders based on it.<br>
 Initialized a variable called issueRows, which means we need a full-fledged function with a return value.
+<br>
+State vs. Props<br>
+props are immutable where as state are not. Typically, state variables are passed down to child components as props. If any event in the child effects the parent's state, the child calls a method defined in the parent. Access to this method should have been explicitly given by passing it as a callback via props. state values are computed typically inside the render() method.<br>
+Parents communicate to children via props; when state changes, the props automatically change.<br>
+Children communicate to parents via callbacks.<br>
+In a well-designed application, most components are stateless functions of their properties<br>
+
+<b>Chapter 5. Express REST APIs</b><br>
+<b>REST (representational state transfer)</b>
+REST is an architectural pattern for APIs.<br>
+APIs are resource based. Resource are accessed based on URI, aka endpoint. Typically use two URIs per resource: one for collection (/customers) and one for object (/customers/123). Resources can also form a hierarchy. (/customers/123/orders, /customers/123/orders/43)<br>
+To access and manipulate the resources, you use HTTP methods. (GET, POST, PUT, PATCH, DELETE) Understand the safety (GET, HEAD, OPTIONS, etc.) and idempotency (PUT, DELETE, etc.) of the methods.<br>
+<b>Express (web application framework)</b>
+Express relies on other modules (middleware) to provide the functionality that most applications need.<br>
+Routing: takes a client request, matches it against any routes that are present, and executes the handler function that is associated with that route. Route specification consists of an HTTP method, a path specification that matches the request URI, and the route handler.<br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/05-list-api">05-list-api</a><br>
+server.js; List API lists all issues. Not integrated with front-end code yet<br>
+Automatic Server Restart using nodemon
+app.get('/api/issues', (req, res) => { ... res.json(...) ... }
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/05-create-api">05-create-api</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/05-using-list-api">05-using-list-api</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/05-using-create-api">05-using-create-api</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/05-error-handling">05-error-handling</a><br>
