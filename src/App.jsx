@@ -1,50 +1,48 @@
 const contentNode = document.getElementById('contents');
 
 class IssueFilter extends React.Component {
-  render() {
-    return (
-      <div>This is a placeholder for the Issue Filter.</div>
-    )
-  }
+    render() {
+        return (
+            <div>This is a placeholder for the Issue Filter.</div>
+        )
+    }
 }
 
-class IssueRow extends React.Component {
-  render() {
-    const issue = this.props.issue;
-    return (
-      <tr>
-        <td>{issue.id}</td>
-        <td>{issue.status}</td>
-        <td>{issue.owner}</td>
-        <td>{issue.created.toDateString()}</td>
-        <td>{issue.effort}</td>
-        <td>{issue.completionDate ? issue.completionDate.toDateString() : ''}</td>
-        <td>{issue.title}</td>
-      </tr>
-    )
-  }
-}
+// ES2015 arrow function style with only the return value as an expression.
+// No curly braces, and no statements, jsut a JSX expression.
+const IssueRow = (props) => (
+    <tr>
+        <td>{props.issue.id}</td>
+        <td>{props.issue.status}</td>
+        <td>{props.issue.owner}</td>
+        <td>{props.issue.created.toDateString()}</td>
+        <td>{props.issue.effort}</td>
+        <td>{props.issue.completionDate ? issue.completionDate.toDateString() : ''}</td>
+        <td>{props.issue.title}</td>
+    </tr>
+)
 
-class IssueTable extends React.Component {
-  render() {
+// less concise but needed as the function is not a single expression.
+// Initialized a variable called issueRows, 
+// which means we need a full-fledged function with a return value.
+function IssueTable(props) {
     const issueRows = this.props.issues.map(issue => <IssueRow key={issue.id} issue={issue} />)
     return (
-      <table className="bordered-table">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Status</th>
-            <th>Owner</th>
-            <th>Created</th>
-            <th>Effort</th>
-            <th>Completion Date</th>
-            <th>Title</th>
-          </tr>
-        </thead>
-        <tbody>{issueRows}</tbody>
-      </table>
-    )
-  }
+        <table className="bordered-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Status</th>
+                    <th>Owner</th>
+                    <th>Created</th>
+                    <th>Effort</th>
+                    <th>Completion Date</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>{issueRows}</tbody>
+        </table>
+    );
 }
 
 class IssueAdd extends React.Component {
@@ -83,58 +81,58 @@ class IssueAdd extends React.Component {
 }
 
 const issues = [
-  {
-    id: 1, status: 'Open', owner: 'Ravan',
-    created: new Date('2016-08-15'), effort: 5, completionDate: undefined,
-    title: 'Error in console when clicking Add',
-  },
-  {
-    id: 2, status: 'Assigned', owner: 'Eddie',
-    created: new Date('2016-08-16'), effort: 14, completionDate: new Date('2016-08-30'),
-    title: 'Missing bottom border on panel',
-  },
+    {
+        id: 1, status: 'Open', owner: 'Ravan',
+        created: new Date('2016-08-15'), effort: 5, completionDate: undefined,
+        title: 'Error in console when clicking Add',
+    },
+    {
+        id: 2, status: 'Assigned', owner: 'Eddie',
+        created: new Date('2016-08-16'), effort: 14, completionDate: new Date('2016-08-30'),
+        title: 'Missing bottom border on panel',
+    },
 ];
 
 class IssueList extends React.Component {
-  constructor() {
-    super();
-    this.state = { issues: [] };
+    constructor() {
+        super();
+        this.state = { issues: [] };
 
-    this.createIssue = this.createIssue.bind(this);
-    // must bind this method in the constructor since
-    // it's not being called from another component 
-    // (so that the this variable during the call will be the calling component.)
-  }
+        this.createIssue = this.createIssue.bind(this);
+        // must bind this method in the constructor since
+        // it's not being called from another component 
+        // (so that the this variable during the call will be the calling component.)
+    }
 
-  componentDidMount() {
-    this.loadData();
-  }
+    componentDidMount() {
+        this.loadData();
+    }
 
-  loadData() {
-    setTimeout(() => {
-      this.setState({ issues: issues });
-    }, 500);
-  }
+    loadData() {
+        setTimeout(() => {
+            this.setState({ issues: issues });
+        }, 500);
+    }
 
-  createIssue(newIssue) {
-    const newIssues = this.state.issues.slice();
-    newIssue.id = this.state.issues.length + 1;
-    newIssues.push(newIssue);
-    this.setState({ issues: newIssues });
-  }
+    createIssue(newIssue) {
+        const newIssues = this.state.issues.slice();
+        newIssue.id = this.state.issues.length + 1;
+        newIssues.push(newIssue);
+        this.setState({ issues: newIssues });
+    }
 
-  render() {
-    return (
-      <div>
-        <h1>Issue Tracker</h1>
-        <IssueFilter />
-        <hr />
-        <IssueTable issues={this.state.issues} />
-        <hr />
-        <IssueAdd createIssue={this.createIssue}/>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <h1>Issue Tracker</h1>
+                <IssueFilter />
+                <hr />
+                <IssueTable issues={this.state.issues} />
+                <hr />
+                <IssueAdd createIssue={this.createIssue} />
+            </div>
+        );
+    }
 }
 
 ReactDOM.render(<IssueList />, contentNode);    // Render the component inside the content Node
