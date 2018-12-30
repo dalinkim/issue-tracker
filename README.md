@@ -1,6 +1,9 @@
 # issue-tracker
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/02-automate">02-automate</a><br>
+  "scripts": {
+    "compile": "babel src --presets react --out-dir static",
+    "watch": "babel src --presets react --out-dir static -watch",
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/02-transform">02-transform</a><br>
 babel-cli: command line tool that invokes the transformation<br>
