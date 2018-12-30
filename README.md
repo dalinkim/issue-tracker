@@ -1,5 +1,9 @@
 # issue-tracker
 
+<a href="https://github.com/dalinkim/issue-tracker/tree/02-separate-script-file">02-separate-script-file</a><br>
+Separate out the JSX script from index.html.
+
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/02-express">02-express</a><br>
 Express is a framework, and it gets most of the job done by functions called middleware. <br>
 A middleware is a function that takes in an HTTP request and response object, plus the next middleware function in the chain. <br>
