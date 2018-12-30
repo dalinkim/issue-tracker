@@ -61,6 +61,7 @@ setTimeout(this.createTestIssue.bind(this), 2000); bind(this) required because w
 src/App.jsx; Use of first Lifecycle method hook, componentDidMount() before this.loadData().
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/04-event-handling">04-event-handling</a><br>
+src/App.jsx; createTestIssue method takes no parameters and appends the sample issue to the list of issues in the state. <br> Also, multiple binds are removed by replacing this.createTestIssue with a permanently bound version in the constructor.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/04-communicate-child-to-parent">04-communicate-child-to-parent</a><br>
 
