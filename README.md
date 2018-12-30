@@ -96,6 +96,9 @@ Automatic Server Restart using nodemon
 app.get('/api/issues', (req, res) => { ... res.json(...) ... }
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/05-create-api">05-create-api</a><br>
+server.js; Create API supports adding a new issue. <br>POST method with request body containing the new issue object to be created.<br>
+Express does not have an in-built parser that can parse request bodies to convert them into objects.
+Thus, body-parser package is used. The body-parser iddleware places the result of parsing in the request's body property.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/05-using-list-api">05-using-list-api</a><br>
 
