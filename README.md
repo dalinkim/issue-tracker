@@ -3,7 +3,7 @@
 Full stack web application development with Mongo, Express, React, and Node. <br>
 Following examples from Pro MERN Stack by Vasan Subramanian
 
-<h3>Chapter 2. Hello World<h3>
+<b>Chapter 2. Hello World</b>
 <a href="https://github.com/dalinkim/issue-tracker/tree/02-server-less-hello-world">02-server-less-hello-world</a><br> index.html; ReactDOM library renders the componenet within the contentNode. <br>
 Babel library is a JSX transformer. (Browser-based compiler used here)
 
@@ -33,7 +33,7 @@ Not all browsers uniformly support ES2015 spec. <br>
 Transpiling: conversion from one spec of JS to another. (Babel: from ES2015 to ES5) <br>
 Polyfills: things that supplement browser capabilities or global functions to use new features of ES2015 (Promise, array find(), and etc.) -> babel-polyfill = emulates a full ES2015 environment.
 
-<h3>Chapter 3. React Components<h3>
+<b>Chapter 3. React Components</b>
 <a href="https://github.com/dalinkim/issue-tracker/tree/03-react-classes">03-react-classes</a><br>
 src/App.jsx; IssueList extends React.Component <br>
 React classe allows creating real components, which can be reused within other components, handle events, and etc. render() method must be present in the class to display the component.<br>
@@ -51,7 +51,7 @@ child(IssueRow): {this.props.issue_title}; parent(IssueTable): IssueRow issue_ti
 <a href="https://github.com/dalinkim/issue-tracker/tree/03-dynamic-composition">03-dynamic-composition</a><br>
 src/App.jsx; IssueList passing the 'issue' array as a property to IssueTable. IssueTable issues={issues}; const issue = this.props.issue; <br> static/index.html; moved inline styles from App.jsx to index.html
 
-<h3>Chapter 4. React State<h3>
+<b>Chapter 4. React State</b>
 <a href="https://github.com/dalinkim/issue-tracker/tree/04-setting-state">04-setting-state</a><br>
 src/App.jsx; To make components that respond to user input and other events, React uses a data structure, state, in the component. It is only the change of state that can change the rendered view. React treats the component as a simple state machine.<br> setState(), initialization done in the constructor. <br>
 Declarative programming paradigm. Mutate the model state, and the view rerenders. But you should not modify the state directly.<br>
