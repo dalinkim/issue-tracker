@@ -1,15 +1,16 @@
 # issue-tracker
 
-<a href="https://github.com/dalinkim/issue-tracker/tree/03-passing-data-children">03-passing-data-children</a><br>
-src/App.jsx; Using this.props.children; can nest other componenets at the time the component is instantiated.
+<a href="https://github.com/dalinkim/issue-tracker/tree/03-dynamic-composition">03-dynamic-composition</a><br>
+src/App.jsx; IssueList passing the 'issue' array as a property to IssueTable. IssueTable issues={issues}; const issue = this.props.issue; <br> static/index.html; moved inline styles from App.jsx to index.html
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/03-passing-data-children">03-passing-data-children</a><br> src/App.jsx; Using this.props.children; can nest other componenets at the time the component is instantiated.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/03-passing-data-props">03-passing-data-props</a><br>
 src/App.jsx; Passing data from a parent component to a child component using properties.<br>
 Any data passed in from the parent can be accessed in the child component through this.props.<br>
 child(IssueRow): {this.props.issue_title}; parent(IssueTable): IssueRow issue_title="title"<br>
 
-<a href="https://github.com/dalinkim/issue-tracker/tree/03-composing-components">03-composing-components</a><br>
-src/App.jsx; component composition - splitting UI into smaller independent pieces; IssueFilter, IssueTable, IssueAdd
+<a href="https://github.com/dalinkim/issue-tracker/tree/03-composing-components">03-composing-components</a><br> src/App.jsx; component composition - splitting UI into smaller independent pieces; IssueFilter, IssueTable, IssueAdd
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/03-react-classes">03-react-classes</a><br>
 src/App.jsx; IssueList extends React.Component <br>
