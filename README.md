@@ -1,5 +1,7 @@
 # issue-tracker
 
-Full stack web application development with Mongo, Express, React, and Node.
+ReactDOM library renders the componenet within the contentNode.
+<br> Babel library is a JSX transformer. (Browser-based compiler used here)
 
-Following examples from Pro MERN Stack by Vasan Subramanian
+Full stack web application development with Mongo, Express, React, and Node.
+<br> Following examples from Pro MERN Stack by Vasan Subramanian
