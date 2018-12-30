@@ -1,5 +1,7 @@
 # issue-tracker
 
+<a href="https://github.com/dalinkim/issue-tracker/tree/02-automate">02-automate</a><br>
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/02-transform">02-transform</a><br>
 babel-cli: command line tool that invokes the transformation<br>
 babel-preset-react: plugin that handles React JSX transformation<br>
