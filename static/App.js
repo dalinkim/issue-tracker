@@ -1,12 +1,13 @@
 const contentNode = document.getElementById('contents');
 
-const continents = ['Africa', 'America', 'Asia', 'Australia', 'Europe'];
-const message = continents.map(c => `Hello ${c}!`).join(' ');
+class IssueList extends React.Component {
+  render() {
+    return React.createElement(
+      'div',
+      null,
+      'This is a placeholder for the issue list.'
+    );
+  }
+}
 
-const component = React.createElement(
-  'p',
-  null,
-  message
-); // A simple component, written in JSX
-
-ReactDOM.render(component, contentNode); // Render the component inside the content Node
+ReactDOM.render(React.createElement(IssueList, null), contentNode); // Render the component inside the content Node
