@@ -64,8 +64,13 @@ src/App.jsx; Use of first Lifecycle method hook, componentDidMount() before this
 src/App.jsx; createTestIssue method takes no parameters and appends the sample issue to the list of issues in the state. <br> Also, multiple binds are removed by replacing this.createTestIssue with a permanently bound version in the constructor.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/04-communicate-child-to-parent">04-communicate-child-to-parent</a><br>
-src/App.jsx; button and handler moved to IssueAdd component; Form with owner and title fields added to IssueAdd component<br> Child does not have access to the parent's method.<br>
-The way to communicate from the child to a parent is by passing callbacks from the parent to the child, which it can call to achieve specific tasks. i.e. pass createIssue as a callback property from IssueTable to IssueAdd.<br>From the child, you just call the passed in function in your handler to create a new issue.
-<br> removed createTestIssue() and all the code used for creating a test issue.
+src/App.jsx; Button and handler moved to IssueAdd component<br>
+Form with owner and title fields added to IssueAdd component<br>
+Child does not have access to the parent's method. The way to communicate from the child to a parent is by passing callbacks from the parent to the child, which it can call to achieve specific tasks. i.e. pass createIssue as a callback property from IssueTable to IssueAdd.<br>
+From the child, you just call the passed in function in your handler to create a new issue.<br>
+Removed createTestIssue() and all the code used for creating a test issue.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/04-stateless-components">04-stateless-components</a><br>
+src/App.jsx; IssueRow and IssueTable re-written as functions rather than classes<br>
+Functions that take in props and just renders based on it.<br>
+Initialized a variable called issueRows, which means we need a full-fledged function with a return value.
