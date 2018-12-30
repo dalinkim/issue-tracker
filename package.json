@@ -1,0 +1,22 @@
+{
+  "name": "mern-stack",
+  "version": "1.0.0",
+  "description": "CS790",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalinkim/issue-tracker.git"
+  },
+  "author": "Dalin Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dalinkim/issue-tracker/issues"
+  },
+  "homepage": "https://github.com/dalinkim/issue-tracker#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
