@@ -134,6 +134,27 @@ const issues = [{
 }];
 
 class IssueList extends React.Component {
+  constructor() {
+    super();
+    this.state = { issues: issues };
+
+    setTimeout(this.createTestIssue.bind(this), 2000);
+  }
+
+  createIssue(newIssue) {
+    const newIssues = this.state.issues.slice();
+    newIssue.id = this.state.issues.length + 1;
+    newIssues.push(newIssue);
+    this.setState({ issues: newIssues });
+  }
+
+  createTestIssue() {
+    this.createIssue({
+      status: 'New', owner: 'Pieta', created: new Date(),
+      title: 'Completion date should be optional'
+    });
+  }
+
   render() {
     return React.createElement(
       'div',
@@ -145,7 +166,7 @@ class IssueList extends React.Component {
       ),
       React.createElement(IssueFilter, null),
       React.createElement('hr', null),
-      React.createElement(IssueTable, { issues: issues }),
+      React.createElement(IssueTable, { issues: this.state.issues }),
       React.createElement('hr', null),
       React.createElement(IssueAdd, null)
     );
