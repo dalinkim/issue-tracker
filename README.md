@@ -1,5 +1,8 @@
 # issue-tracker
 
+<a href="https://github.com/dalinkim/issue-tracker/tree/03-composing-components">03-composing-components</a><br>
+src/App.jsx; component composition - splitting UI into smaller independent pieces.<br>
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/03-react-classes">03-react-classes</a><br>
 src/App.jsx; IssueList extends React.Component <br>
 React classe allows creating real components, which can be reused within other components, handle events, and etc. render() method must be present in the class to display the component.<br>
