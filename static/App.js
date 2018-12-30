@@ -3,28 +3,53 @@ const contentNode = document.getElementById('contents');
 class IssueFilter extends React.Component {
   render() {
     return React.createElement(
-      "div",
+      'div',
       null,
-      "This is a placeholder for the Issue Filter."
+      'This is a placeholder for the Issue Filter.'
     );
   }
 }
 
 class IssueRow extends React.Component {
   render() {
-    const borderedStyle = { border: "1px solid silver", padding: 4 };
+    const issue = this.props.issue;
     return React.createElement(
-      "tr",
+      'tr',
       null,
       React.createElement(
-        "td",
-        { style: borderedStyle },
-        this.props.issue_id
+        'td',
+        null,
+        issue.id
       ),
       React.createElement(
-        "td",
-        { style: borderedStyle },
-        this.props.children
+        'td',
+        null,
+        issue.status
+      ),
+      React.createElement(
+        'td',
+        null,
+        issue.owner
+      ),
+      React.createElement(
+        'td',
+        null,
+        issue.created.toDateString()
+      ),
+      React.createElement(
+        'td',
+        null,
+        issue.effort
+      ),
+      React.createElement(
+        'td',
+        null,
+        issue.completionDate ? issue.completionDate.toDateString() : ''
+      ),
+      React.createElement(
+        'td',
+        null,
+        issue.title
       )
     );
   }
@@ -32,47 +57,57 @@ class IssueRow extends React.Component {
 
 class IssueTable extends React.Component {
   render() {
-    const borderedStyle = { border: "1px solid silver", padding: 6 };
+    const issueRows = this.props.issues.map(issue => React.createElement(IssueRow, { key: issue.id, issue: issue }));
     return React.createElement(
-      "table",
-      { style: { borderCollapse: "collapse" } },
+      'table',
+      { className: 'bordered-table' },
       React.createElement(
-        "thead",
+        'thead',
         null,
         React.createElement(
-          "tr",
+          'tr',
           null,
           React.createElement(
-            "th",
-            { style: borderedStyle },
-            "Id"
+            'th',
+            null,
+            'Id'
           ),
           React.createElement(
-            "th",
-            { style: borderedStyle },
-            "Title"
+            'th',
+            null,
+            'Status'
+          ),
+          React.createElement(
+            'th',
+            null,
+            'Owner'
+          ),
+          React.createElement(
+            'th',
+            null,
+            'Created'
+          ),
+          React.createElement(
+            'th',
+            null,
+            'Effort'
+          ),
+          React.createElement(
+            'th',
+            null,
+            'Completion Date'
+          ),
+          React.createElement(
+            'th',
+            null,
+            'Title'
           )
         )
       ),
       React.createElement(
-        "tbody",
+        'tbody',
         null,
-        React.createElement(
-          IssueRow,
-          { issue_id: 1 },
-          "Error in console when clicking Add"
-        ),
-        React.createElement(
-          IssueRow,
-          { issue_id: 2 },
-          "Missing bottom ",
-          React.createElement(
-            "b",
-            null,
-            "border"
-          ),
-          " on panel"
-        )
+        issueRows
       )
     );
   }
@@ -81,27 +116,37 @@ class IssueTable extends React.Component {
 class IssueAdd extends React.Component {
   render() {
     return React.createElement(
-      "div",
+      'div',
       null,
-      "This is a placeholder for an Issue Add entry form."
+      'This is a placeholder for an Issue Add entry form.'
     );
   }
 }
 
+const issues = [{
+  id: 1, status: 'Open', owner: 'Ravan',
+  created: new Date('2016-08-15'), effort: 5, completionDate: undefined,
+  title: 'Error in console when clicking Add'
+}, {
+  id: 2, status: 'Assigned', owner: 'Eddie',
+  created: new Date('2016-08-16'), effort: 14, completionDate: new Date('2016-08-30'),
+  title: 'Missing bottom border on panel'
+}];
+
 class IssueList extends React.Component {
   render() {
     return React.createElement(
-      "div",
+      'div',
       null,
       React.createElement(
-        "h1",
+        'h1',
         null,
-        "Issue Tracker"
+        'Issue Tracker'
       ),
       React.createElement(IssueFilter, null),
-      React.createElement("hr", null),
-      React.createElement(IssueTable, null),
-      React.createElement("hr", null),
+      React.createElement('hr', null),
+      React.createElement(IssueTable, { issues: issues }),
+      React.createElement('hr', null),
       React.createElement(IssueAdd, null)
     );
   }
