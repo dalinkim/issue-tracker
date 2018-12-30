@@ -43,7 +43,7 @@ const IssueRow = props => React.createElement(
     React.createElement(
         'td',
         null,
-        props.issue.completionDate ? issue.completionDate.toDateString() : ''
+        props.issue.completionDate ? props.issue.completionDate.toDateString() : ''
     ),
     React.createElement(
         'td',
@@ -56,7 +56,7 @@ const IssueRow = props => React.createElement(
 // Initialized a variable called issueRows, 
 // which means we need a full-fledged function with a return value.
 function IssueTable(props) {
-    const issueRows = this.props.issues.map(issue => React.createElement(IssueRow, { key: issue.id, issue: issue }));
+    const issueRows = props.issues.map(issue => React.createElement(IssueRow, { key: issue.id, issue: issue }));
     return React.createElement(
         'table',
         { className: 'bordered-table' },
