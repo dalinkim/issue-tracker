@@ -131,3 +131,23 @@ src/App.jsx; updating id to _id, even List API can return a non-successful HTTP 
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/06-write-to-mongodb">06-write-to-mongodb</a><br>
 server.js; modify Create API to wrote to MongoDB, clean up validations, and remove in-memory array
+
+<b>Chapter 7. Modularization and Webpack</b>
+<a href="https://github.com/dalinkim/issue-tracker/tree/07-server-side-modules">07-server-side-modules</a><br>
+server/issue.js; separating Issue object into its own file and exporting using module.exports
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/07-using-webpack-manually">07-using-webpack-manually</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/07-transform-and-bundle">07-transform-and-bundle</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/07-libraries-bundle">07-libraries-bundle</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/07-hot-module-replacement">07-hot-module-replacement</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/07-hmr-using-middleware">07-hmr-using-middleware</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/07-debugging">07-debugging</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/07-server-side-es2015">07-server-side-es2015</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/07-eslint">07-eslint</a><br>
