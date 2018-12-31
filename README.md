@@ -101,10 +101,11 @@ Express does not have an in-built parser that can parse request bodies to conver
 Thus, body-parser package is used. The body-parser iddleware places the result of parsing in the request's body property.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/05-using-list-api">05-using-list-api</a><br>
-Use List API in the application front end and replace the in-memory list of issues.<br>
+src/App.jsx; Use List API in the application front end and replace the in-memory list of issues.<br>
 Browsers support asynchronous API calls (~Ajax calls) natively via the Fetch API.<br>
 fetch() takes in the path of the URL to be fetched and returns a promise with the response as the value. The response is then parsed with json() method of the response itself, and it also returns a promise with the value as the parsed data. The parsed data will reflect what we sent from the server.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/05-using-create-api">05-using-create-api</a><br>
+src/App.jsx; Use Create API to modify the createIssue() method. Instead of directly appending new item to the list of issues, it is first sent to the server, and the updated issue returned by the server is used.<br>fetch() API for POST method takes an options object in the second parameter, which includes method, Content Type header, and the body in JSON representation. <br>Then the updated issue is returned by the server in JSON format. As for the setting the new state, a new list of issues is created by making a copy of the existing list from the current state (this.state)
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/05-error-handling">05-error-handling</a><br>
