@@ -173,3 +173,19 @@ require hook binds itself to Node.js' require and dynamically compiles any new m
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-eslint">07-eslint</a><br>
 A linter (something that lints) checks for suspicious code that may be a bug. It can also check whether your code adheres to conventions and standards that you want to follow accross your team to make the code predictably readable. ESLint is a flexible linter that lets you define the rules that you want to follow.<br>
 ESLint requires that the configuration and the rules to apply be specified in a started file, .eslintrc. ESLint needs to be told that a certain file is being used in a certain environment.
+
+<b>Chapter 8. React Router</b><br>
+Chapter reviews the concept of routing, or handling multiple pages that need to be displayed.<br>
+A single-page application has multiple logical pages within the application. It's just that the page load happens only the first time; after that, each of the other views is loaded by manipulating or changing the DOM. Need routing to navigate between different views.<br>
+Routing techniques: two ways to connect a page to something that the browser recognizes and indicates that "this is the page that the user is viewing." - 1. Hash-based (using the anchor portion of the URL, everything following the #) 2. Push state aka browser history (new HTML5 API that lets JS handle the page transitions at the same time preventing the browser from reloading the page when the URL changes.)<br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/08-simple-routing">08-simple-routing</a><br>
+Creaeting two routes: one for the issue list and another (placeholder) for viewing and editing a single issue. Any new front-end packages should be added to the vendor section of the webpack configuration. <br>
+React Router works by taking control of the main component that is rendered in the DOM so instead of App component, we need to render a Router component.
+
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/08-route-parameters">08-route-parameters</a><br>
+<a href="https://github.com/dalinkim/issue-tracker/tree/08-route-query-string">08-route-query-string</a><br>
+<a href="https://github.com/dalinkim/issue-tracker/tree/08-programmatic-navigation">08-programmatic-navigation</a><br>
+<a href="https://github.com/dalinkim/issue-tracker/tree/08-nested-routes">08-nested-routes</a><br>
+<a href="https://github.com/dalinkim/issue-tracker/tree/08-browser-history">08-browser-history</a><br>
