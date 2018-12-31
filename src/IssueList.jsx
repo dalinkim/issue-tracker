@@ -1,5 +1,10 @@
 import IssueAdd from './IssueAdd.jsx';
 import IssueFilter from './IssueFilter.jsx';
+import React from 'react';
+// fetch is imported into the global namespace
+// because it is expected to be a substitute for window.fetch(), 
+// which should be available in the browser in any case.
+import 'whatwg-fetch';
 
 // ES2015 arrow function style with only the return value as an expression.
 // No curly braces, and no statements, jsut a JSX expression.
