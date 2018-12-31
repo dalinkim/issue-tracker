@@ -120,5 +120,8 @@ MongoDB query language is made up of methods to achieve various operations.
 scripts/init.mongo.js; create a mongo shell script with initialization statements, setting up the db variable, removing all existing issues, if any, inserting a few samples records, and creating indexes.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/06-mongodb-node.js-driver">06-mongodb-node.js-driver</a><br>
+trymongo.js; Node.js driver(npm mongodb) allows connecting and interacting with MongoDB server.<br>
+callbacks paradigm, promises paradigm, generator paradigm, async module
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/06-read-from-mongodb">06-read-from-mongodb</a><br>
 <a href="https://github.com/dalinkim/issue-tracker/tree/06-write-to-mongodb">06-write-to-mongodb</a><br>
