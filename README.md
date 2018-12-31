@@ -137,7 +137,9 @@ server.js; modify Create API to wrote to MongoDB, clean up validations, and remo
 server/issue.js; separating Issue object into its own file and exporting using module.exports
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-using-webpack-manually">07-using-webpack-manually</a><br>
-
+/src; Tools such as webpack and browserify provide alternatives to define dependencies as you would in a Node.js application using require or equivalent statements. They automatically figure out not just your own dependent modules, but also third-party libraries. Webpack transforms and watches for changes to files.
+<br>Splitting IssueAdd, using export default (single class and the result of import is the class)
+ 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-transform-and-bundle">07-transform-and-bundle</a><br>
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-libraries-bundle">07-libraries-bundle</a><br>
