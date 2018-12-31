@@ -187,6 +187,12 @@ React Router works by taking control of the main component that is rendered in t
 Path can be a complex string pattern that can match optional segments and even specify parameters like REST API paths. Value of the string available in a property object, params. Use React Reouter provided Redirect component to implement a redirect. Use React Router provided Link component to create links.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-route-query-string">08-route-query-string</a><br>
+React Router also parses the query string and makes it available to the coponent in a property object called location, which contains various keys, including path, unparsed query string, and a parsed query object. <br>
+Query strings are ideal for specifying a filter to the issue list. <br>
+First, the back-end API is changed to handle this with find(filter). <br>
+Then, this is integrated into the client-side code. Two ways for auery string to be supplied to a Link. <br>Lastly, the filter is passed to the REST API call while loading the list of issues in IssueList component, in the call to fetch().<br>
+Use componentDidUpdate() to hook into a method that tells us that the route query string has changed so that we can reload the list.
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-programmatic-navigation">08-programmatic-navigation</a><br>
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-nested-routes">08-nested-routes</a><br>
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-browser-history">08-browser-history</a><br>
