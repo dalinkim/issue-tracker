@@ -1,16 +1,22 @@
-export default {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
     validateIssue: validateIssue
 };
 
 // validIssueStatus and issueFieldType are global objects
 // these are a kind of schema definition to indicate what is a valid issue object
+
 const validIssueStatus = {
     New: true,
     Open: true,
     Assigned: true,
     Fixed: true,
     Verified: true,
-    Closed: true,
+    Closed: true
 };
 const issueFieldType = {
     status: 'required',
@@ -18,7 +24,7 @@ const issueFieldType = {
     effort: 'optional',
     created: 'required',
     completionDate: 'optional',
-    title: 'required',
+    title: 'required'
 };
 // validateIssue checks against the specification and returns an error if the validation fails.
 function validateIssue(issue) {
@@ -31,12 +37,12 @@ function validateIssue(issue) {
             return `${field} is required.`;
         }
     }
-    if (!validIssueStatus[issue.status])
-        return `${issue.status} is not a valid status`;
+    if (!validIssueStatus[issue.status]) return `${issue.status} is not a valid status`;
 
     return null;
 }
 
 module.exports = {
     validateIssue: validateIssue
-}
+};
+//# sourceMappingURL=issue.js.map

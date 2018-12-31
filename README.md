@@ -165,7 +165,10 @@ webpack gives you source maps, things that contain your original source code as 
 Browsers' development tools automatically understand source maps and correlate the two, letting you put breakpoints in your code and converting them to breakpoints in the transformed or transpiled code.
 Added source map configuration in webpack config.
 
-
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-server-side-es2015">07-server-side-es2015</a><br>
+Start using import export style of modularization to keep the coding style and features used uniform across the board. Using babel-preset-es2015-node4, only unsupported ES2015 features are changed. Compiled files are saved in dist dir.<br>
+Scripts are added to compile the server, watch for changed files, and use the compiled file from the dist dir. This static compliation requires one more console to run to watch the server.<br>
+require hook binds itself to Node.js' require and dynamically compiles any new module that is loaded.<br>
+
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-eslint">07-eslint</a><br>
