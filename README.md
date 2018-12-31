@@ -115,6 +115,7 @@ server.js; As for server-side application-level validation, missing required fie
 <b>Chapter 6. Using MongoDB</b><br>
 MongoDB is a document database. (Record is a document or an object) A document is a data structure composed of field and value pairs. Primary key is mandated in MongoDB with the reserved field name, _id.
 MongoDB query language is made up of methods to achieve various operations.
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/06-schema-initialization">06-schema-initialization</a><br>
 scripts/init.mongo.js; create a mongo shell script with initialization statements, setting up the db variable, removing all existing issues, if any, inserting a few samples records, and creating indexes.
 
