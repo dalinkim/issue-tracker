@@ -3,11 +3,11 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app: './src/App.jsx',
+        app: ['./src/App.jsx'],
         vendor: ['react', 'react-dom', 'whatwg-fetch', 'babel-polyfill'],
     },
     output: {
-        path: './static',
+        path: __dirname + './static',
         filename: 'app.bundle.js'
     },
     plugins: [
