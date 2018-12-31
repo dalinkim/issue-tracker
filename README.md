@@ -101,6 +101,9 @@ Express does not have an in-built parser that can parse request bodies to conver
 Thus, body-parser package is used. The body-parser iddleware places the result of parsing in the request's body property.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/05-using-list-api">05-using-list-api</a><br>
+Use List API in the application front end and replace the in-memory list of issues.<br>
+Browsers support asynchronous API calls (~Ajax calls) natively via the Fetch API.<br>
+fetch() takes in the path of the URL to be fetched and returns a promise with the response as the value. The response is then parsed with json() method of the response itself, and it also returns a promise with the value as the parsed data. The parsed data will reflect what we sent from the server.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/05-using-create-api">05-using-create-api</a><br>
 
