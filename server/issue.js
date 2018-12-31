@@ -1,4 +1,6 @@
-'user strict';
+export default {
+    validateIssue: validateIssue
+};
 
 // validIssueStatus and issueFieldType are global objects
 // these are a kind of schema definition to indicate what is a valid issue object
