@@ -152,6 +152,9 @@ Browsers can cache scripts when they are not changed so separate bundle configur
 304 response for vendor bundle means that it is not fetching the bundle if it is already there in the browser's cache.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-hot-module-replacement">07-hot-module-replacement</a><br>
+webpack-dev-server watches for client-side code changes and speed up delivery of the bundle by keeping the bundle completely in the memory, not writing it to disk. It also makes the browser wait until the bundle is ready ensuring that if you have changed any client-side code, you are guaranteed to not be served with the previous version.<br>
+webpack-dev-server can act as a proxy for API requests and forward them to the Express server. webpack-dev-server configuration is added to webpack. proxy configuration tells webpack-dev-server to look for requests matching '/api/*' and forward them to the Express server.<br>
+HMR(hot module replacement) automatically causes a browser refresh whenever there is a change in the client-side bundle. Client-side code that is responsible for dealing with modules is modified to accepts HMR.<br>Main objective of webpack-dev-server is to prevent inadvertent erros, such as those caused by refreshing the browser even before a bundle operation has completed. This can be damaging beause you may think you have changed the code, but the new code is not what is running on the browser.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-hmr-using-middleware">07-hmr-using-middleware</a><br>
 
