@@ -183,8 +183,9 @@ Routing techniques: two ways to connect a page to something that the browser rec
 Creaeting two routes: one for the issue list and another (placeholder) for viewing and editing a single issue. Any new front-end packages should be added to the vendor section of the webpack configuration. <br>
 React Router works by taking control of the main component that is rendered in the DOM so instead of App component, we need to render a Router component.
 
-
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-route-parameters">08-route-parameters</a><br>
+Path can be a complex string pattern that can match optional segments and even specify parameters like REST API paths. Value of the string available in a property object, params. Use React Reouter provided Redirect component to implement a redirect. Use React Router provided Link component to create links.
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-route-query-string">08-route-query-string</a><br>
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-programmatic-navigation">08-programmatic-navigation</a><br>
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-nested-routes">08-nested-routes</a><br>
