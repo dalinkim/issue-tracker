@@ -146,6 +146,10 @@ webpack.config.js configuration file module is used by webpack to get its parame
 Classes are separated creating two-level hierarchy of imports: App.jsx imports IssueList.jsx which imports IssueAdd.jsx and IssueFilter.jsx
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-libraries-bundle">07-libraries-bundle</a><br>
+For the client-side code, libraries had been included as scripts from a CDN (Content Delivery Network).<br>
+webpack is not used to create a bundle that includes these libraries as it can deal with client-side libraries installed via npm.<br>
+Browsers can cache scripts when they are not changed so separate bundle configurations (one for application code and another for all the libraries) using webpack built-in plugin, CommonsChunkPlugin.<br>
+304 response for vendor bundle means that it is not fetching the bundle if it is already there in the browser's cache.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-hot-module-replacement">07-hot-module-replacement</a><br>
 
