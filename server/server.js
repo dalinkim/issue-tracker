@@ -8,26 +8,6 @@ const app = express();
 app.use(express.static('static'));
 app.use(bodyParser.json()); // using JSON parser from body-parser
 
-// use HMR via middleware for development convenience
-if (process.env.NODE_ENV !== 'production') {
-    // load modules
-    const webpack = require('webpack');
-    const webpackDevMiddleware = require('webpack-dev-middleware');
-    const webpackHotMiddleware = require('webpack-hot-middleware');
-
-    // load default webpack config
-    const config = require('../webpack.config');
-    // append additional entry points and plugins that are required for HMR
-    config.entry.app.push('webpack-hot-middleware/client', 'webpack/hot/only-dev-server');
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
-
-    // create bundler using new options and pass it to the two middleware instantiations
-    const bundler = webpack(config);
-    // app.use to install middlewares
-    app.use(webpackDevMiddleware(bundler, { noInfo: true }));
-    app.use(webpackHotMiddleware(bundler, { log: console.log }));
-}
-
 app.get('/api/issues', (req, res) => {
     db.collection('issues').find().toArray().then(issues => {
         const metadata = {
