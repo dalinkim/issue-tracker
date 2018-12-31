@@ -130,3 +130,4 @@ updating app.get(...) to read from MongoDB<br>
 src/App.jsx; updating id to _id, even List API can return a non-successful HTTP Status code so it is also handled in the front end, loadData() method.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/06-write-to-mongodb">06-write-to-mongodb</a><br>
+server.js; modify Create API to wrote to MongoDB, clean up validations, and remove in-memory array
