@@ -1,5 +1,8 @@
+'user strict'
+
 const express = require('express');
 const bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient;
 
 const app = express();
 app.use(express.static('static'));
@@ -19,8 +22,13 @@ const issues = [
 ];
 
 app.get('/api/issues', (req, res) => {
-    const metadata = { total_count: issues.length };
-    res.json({ _metadata: metadata, records: issues });
+    db.collection('issues').find().toArray().then(issues => {
+        const metadata = { total_count: issues.length };
+        res.json({ _metadata: metadata, records: issues });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).json({ message: `Internal Server Error: ${error}` });
+    });
 });
 
 // validIssueStatus and issueFieldType are global objects
@@ -34,7 +42,7 @@ const validIssueStatus = {
     Closed: true,
 };
 const issueFieldType = {
-    id: 'required',
+    _id: 'required',
     status: 'required',
     owner: 'required',
     effort: 'optional',
@@ -61,7 +69,7 @@ function validateIssue(issue) {
 
 app.post('/api/issues', (req, res) => {
     const newIssue = req.body;
-    newIssue.id = issues.length + 1;
+    newIssue._id = issues.length + 1;
     newIssue.created = new Date();
     if (!newIssue.status)
         newIssue.status = 'New';
@@ -75,6 +83,14 @@ app.post('/api/issues', (req, res) => {
     res.json(newIssue);
 });
 
-app.listen(3000, function () {
-    console.log('App started on port 3000');
-});
+let db;
+MongoClient.connect('mongodb://localhost/issuetracker').then(connection => {
+    db = connection;
+    app.listen(3000, function () {
+        console.log('App started on port 3000');
+    });
+}).catch(error => {
+    console.log('ERROR', error);
+})
+
+

@@ -124,4 +124,9 @@ trymongo.js; Node.js driver(npm mongodb) allows connecting and interacting with 
 callbacks paradigm, promises paradigm, generator paradigm, async module
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/06-read-from-mongodb">06-read-from-mongodb</a><br>
+server.js; modify List API to read from the database instead of the in-memory list of issues on the server.
+setting up MongoDB connection (MongoClient.connect(...).then(...))
+updating app.get(...) to read from MongoDB<br>
+src/App.jsx; updating id to _id, even List API can return a non-successful HTTP Status code so it is also handled in the front end, loadData() method.
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/06-write-to-mongodb">06-write-to-mongodb</a><br>
