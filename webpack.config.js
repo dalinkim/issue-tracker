@@ -21,5 +21,14 @@ module.exports = {
                 presets: ['react', 'es2015']
             }
         }, ]
+    },
+    devServer: {
+        port: 8000,
+        contentBase: 'static',
+        proxy: {
+            '/api/*': {
+                target: 'http://localhost:3000'
+            }
+        }
     }
 };
