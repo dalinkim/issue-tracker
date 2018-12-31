@@ -170,5 +170,6 @@ Start using import export style of modularization to keep the coding style and f
 Scripts are added to compile the server, watch for changed files, and use the compiled file from the dist dir. This static compliation requires one more console to run to watch the server.<br>
 require hook binds itself to Node.js' require and dynamically compiles any new module that is loaded.<br>
 
-
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-eslint">07-eslint</a><br>
+A linter (something that lints) checks for suspicious code that may be a bug. It can also check whether your code adheres to conventions and standards that you want to follow accross your team to make the code predictably readable. ESLint is a flexible linter that lets you define the rules that you want to follow.<br>
+ESLint requires that the configuration and the rules to apply be specified in a started file, .eslintrc. ESLint needs to be told that a certain file is being used in a certain environment.
