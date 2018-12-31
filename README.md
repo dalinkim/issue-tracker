@@ -157,6 +157,8 @@ webpack-dev-server can act as a proxy for API requests and forward them to the E
 HMR(hot module replacement) automatically causes a browser refresh whenever there is a change in the client-side bundle. Client-side code that is responsible for dealing with modules is modified to accepts HMR.<br>Main objective of webpack-dev-server is to prevent inadvertent erros, such as those caused by refreshing the browser even before a bundle operation has completed. This can be damaging beause you may think you have changed the code, but the new code is not what is running on the browser.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-hmr-using-middleware">07-hmr-using-middleware</a><br>
+Installing HMR as the middleware (webpack-dev-middleware webpack-hot-middleware) - wiring in the HMR pieces within the Express code itself to make it a single server that serves the APIs, and at the same time watches for changes to client-side code, rebundles it, and sends incremental updates to the client.<br>
+Need additional entry points so that webpack can built the client-side code nessary for this extra functionality into the bundle. Also need to add a plugin that generates incremental updates rather than entire bundles that can be sent to the client.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-debugging">07-debugging</a><br>
 
