@@ -111,3 +111,13 @@ src/App.jsx; Use Create API to modify the createIssue() method. Instead of direc
 <a href="https://github.com/dalinkim/issue-tracker/tree/05-error-handling">05-error-handling</a><br>
 server.js; As for server-side application-level validation, missing required fields and incorrect list values will be handled by simply setting the status using res.status() and sending the error message as the response. In the app.post's handler, validation function is called and in case of error, an object with an appropriate message is sent back.<br>
 /src/App.jsx; As for client-side error handling, createIssue() method is modified to detect a non-success HTTP status code. Fetch API does not throw an error for failure HTTP status codes so cannot rely on catch section. The response's property, response.ok, must be checked. If not okay, error.
+
+<b>Chapter 6. Using MongoDB</b><br>
+MongoDB is a document database. (Record is a document or an object) A document is a data structure composed of field and value pairs. Primary key is mandated in MongoDB with the reserved field name, _id.
+MongoDB query language is made up of methods to achieve various operations.
+<a href="https://github.com/dalinkim/issue-tracker/tree/06-schema-initialization">06-schema-initialization</a><br>
+scripts/init.mongo.js; create a mongo shell script with initialization statements, setting up the db variable, removing all existing issues, if any, inserting a few samples records, and creating indexes.
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/06-mongodb-node.js-driver">06-mongodb-node.js-driver</a><br>
+<a href="https://github.com/dalinkim/issue-tracker/tree/06-read-from-mongodb">06-read-from-mongodb</a><br>
+<a href="https://github.com/dalinkim/issue-tracker/tree/06-write-to-mongodb">06-write-to-mongodb</a><br>
