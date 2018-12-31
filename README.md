@@ -132,15 +132,18 @@ src/App.jsx; updating id to _id, even List API can return a non-successful HTTP 
 <a href="https://github.com/dalinkim/issue-tracker/tree/06-write-to-mongodb">06-write-to-mongodb</a><br>
 server.js; modify Create API to wrote to MongoDB, clean up validations, and remove in-memory array
 
-<b>Chapter 7. Modularization and Webpack</b>
+<b>Chapter 7. Modularization and Webpack</b><br>
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-server-side-modules">07-server-side-modules</a><br>
 server/issue.js; separating Issue object into its own file and exporting using module.exports
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-using-webpack-manually">07-using-webpack-manually</a><br>
 /src; Tools such as webpack and browserify provide alternatives to define dependencies as you would in a Node.js application using require or equivalent statements. They automatically figure out not just your own dependent modules, but also third-party libraries. Webpack transforms and watches for changes to files.
 <br>Splitting IssueAdd, using export default (single class and the result of import is the class)
- 
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-transform-and-bundle">07-transform-and-bundle</a><br>
+Using webpack to automatically transform JSX files using babel-loader and bundling them.<br>
+webpack.config.js configuration file module is used by webpack to get its parameters.<br>
+Classes are separated creating two-level hierarchy of imports: App.jsx imports IssueList.jsx which imports IssueAdd.jsx and IssueFilter.jsx
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-libraries-bundle">07-libraries-bundle</a><br>
 
