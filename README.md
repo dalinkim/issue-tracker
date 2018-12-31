@@ -158,9 +158,13 @@ HMR(hot module replacement) automatically causes a browser refresh whenever ther
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-hmr-using-middleware">07-hmr-using-middleware</a><br>
 Installing HMR as the middleware (webpack-dev-middleware webpack-hot-middleware) - wiring in the HMR pieces within the Express code itself to make it a single server that serves the APIs, and at the same time watches for changes to client-side code, rebundles it, and sends incremental updates to the client.<br>
-Need additional entry points so that webpack can built the client-side code nessary for this extra functionality into the bundle. Also need to add a plugin that generates incremental updates rather than entire bundles that can be sent to the client.
+Need additional entry points so that webpack can built the client-side code nessary for this extra functionality into the bundle. Also need to add a plugin that generates incremental updates rather than entire bundles that can be sent to the client. THe problem with middleware approach is that a change in the server-side code causes the entire front-end bundle to be rebuilt so the author reverted back to the webpack-dev-server approach.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-debugging">07-debugging</a><br>
+webpack gives you source maps, things that contain your original source code as you typed it in.<br>
+Browsers' development tools automatically understand source maps and correlate the two, letting you put breakpoints in your code and converting them to breakpoints in the transformed or transpiled code.
+Added source map configuration in webpack config.
+
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-server-side-es2015">07-server-side-es2015</a><br>
 
