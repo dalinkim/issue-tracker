@@ -201,3 +201,4 @@ Create a common decoration (header) for all pages across the application using n
 IndexRoute component can be used to indicate that a particular component needs to be displayed if only the parent route is matched.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-browser-history">08-browser-history</a><br>
+Using browser history is recommended because 1) URL looks cleaner and easier to read and 2) if you need to do server-side rendering, hash-based method will not work as the hash-anchor is just a location within the page so bots cannot crawl.
