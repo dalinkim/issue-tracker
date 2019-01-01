@@ -197,4 +197,7 @@ Use componentDidUpdate() to hook into a method that tells us that the route quer
 Must navigate by changing the browser's URL using code. Use React Router's router object. router.push() to set the filter programmatically. First, inject the router property into the components which need it, using React Router's withRouter method, which wraps a given component documentation under withRouter and RouterContext. A method is added in IssueList to set a new filter, and the router is used to change the URL based on the filter.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-nested-routes">08-nested-routes</a><br>
+Create a common decoration (header) for all pages across the application using nesting of routes. Applicatino uses one level of nesting where a main component has a header, the contents section, and a footer. To configure this, nest the routes in the router configuration. Create a new component, App, corresponding to the decorator that holds the header and footer. React Router will pass via props.children the child component resolved as a result of route matching.<br>
+IndexRoute component can be used to indicate that a particular component needs to be displayed if only the parent route is matched.
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-browser-history">08-browser-history</a><br>
