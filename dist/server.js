@@ -71,6 +71,9 @@ app.post('/api/issues', (req, res) => {
   });
 });
 
+// new express route has to be placed after all the other routes
+// so that it gets resolved only if none of the previous routes match
+// resolve is also used because sendFile accepts only absolute paths.
 app.get('*', (req, res) => {
   res.sendFile(_path2.default.resolve('static/index.html'));
 });
