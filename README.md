@@ -215,6 +215,7 @@ Another way is to supply a value that is a variable, something that is part of R
 Modify IssueFilter to render with the filter form. onChange events from each of the inputs are handled by setting the state variable to the event target's value.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/09-get-api">09-get-api</a><br>
+Get API to retrieve a single issue and display it in the edit page. To get a single resource, REST dictates that we need an API of the form /api/issues/issue_id. In the handler, get the ID as a parameter in the request object (req.params.id), convert the string ID to MongoDB ObjectID, and then retrieve a single record returning the document as a JSON in the document.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/09-edit-page">09-edit-page</a><br>
 
