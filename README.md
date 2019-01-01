@@ -194,5 +194,7 @@ Then, this is integrated into the client-side code. Two ways for auery string to
 Use componentDidUpdate() to hook into a method that tells us that the route query string has changed so that we can reload the list.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-programmatic-navigation">08-programmatic-navigation</a><br>
+Must navigate by changing the browser's URL using code. Use React Router's router object. router.push() to set the filter programmatically. First, inject the router property into the components which need it, using React Router's withRouter method, which wraps a given component documentation under withRouter and RouterContext. A method is added in IssueList to set a new filter, and the router is used to change the URL based on the filter.
+
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-nested-routes">08-nested-routes</a><br>
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-browser-history">08-browser-history</a><br>
