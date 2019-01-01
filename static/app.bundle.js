@@ -36,16 +36,57 @@ webpackJsonp([0],{
 	  );
 	};
 	
-	// kind of history to use, hashHistory from react-router
-	// wrapping IssueList with withRouter - IssueList can use this.props.router to access the router object.
+	var App = function App(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'header' },
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'Issue Tracker'
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'contents' },
+	      props.children
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'footer' },
+	      'Full source code available at this ',
+	      _react2.default.createElement(
+	        'a',
+	        { href: 'https://github.com/dalinkim/issue-tracker' },
+	        'GitHub repository'
+	      ),
+	      '.'
+	    )
+	  );
+	};
+	
+	App.propTypes = {
+	  children: _react2.default.PropTypes.object.isRequired
+	};
+	
+	// kind of history to use, browserHistory from react-router
+	// wrapping IssueList with withRouter
+	// IssueList can use this.props.router to access the router object.
 	var RoutedApp = function RoutedApp() {
 	  return _react2.default.createElement(
 	    _reactRouter.Router,
-	    { history: _reactRouter.hashHistory },
+	    { history: _reactRouter.browserHistory },
 	    _react2.default.createElement(_reactRouter.Redirect, { from: '/', to: 'issues' }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/issues', component: (0, _reactRouter.withRouter)(_IssueList2.default) }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/issues/:id', component: _IssueEdit2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '*', component: NoMatch })
+	    _react2.default.createElement(
+	      _reactRouter.Route,
+	      { path: '/', component: App },
+	      _react2.default.createElement(_reactRouter.Route, { path: '/issues', component: (0, _reactRouter.withRouter)(_IssueList2.default) }),
+	      _react2.default.createElement(_reactRouter.Route, { path: '/issues/:id', component: _IssueEdit2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: '*', component: NoMatch })
+	    )
 	  );
 	};
 	
@@ -317,11 +358,6 @@ webpackJsonp([0],{
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Issue Tracker'
-	        ),
 	        _react2.default.createElement(_IssueFilter2.default, { setFilter: this.setFilter }),
 	        _react2.default.createElement('hr', null),
 	        _react2.default.createElement(IssueTable, { issues: this.state.issues }),
