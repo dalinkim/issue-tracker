@@ -37,12 +37,13 @@ webpackJsonp([0],{
 	};
 	
 	// kind of history to use, hashHistory from react-router
+	// wrapping IssueList with withRouter - IssueList can use this.props.router to access the router object.
 	var RoutedApp = function RoutedApp() {
 	  return _react2.default.createElement(
 	    _reactRouter.Router,
 	    { history: _reactRouter.hashHistory },
 	    _react2.default.createElement(_reactRouter.Redirect, { from: '/', to: 'issues' }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/issues', component: _IssueList2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/issues', component: (0, _reactRouter.withRouter)(_IssueList2.default) }),
 	    _react2.default.createElement(_reactRouter.Route, { path: '/issues/:id', component: _IssueEdit2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: '*', component: NoMatch })
 	  );
@@ -227,6 +228,7 @@ webpackJsonp([0],{
 	    // must bind this method in the constructor since
 	    // it's not being called from another component
 	    // (so that the this variable during the call will be the calling component.)
+	    _this.setFilter = _this.setFilter.bind(_this);
 	    return _this;
 	  }
 	
@@ -234,6 +236,25 @@ webpackJsonp([0],{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.loadData();
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate(prevProps) {
+	      var oldQuery = prevProps.location.query;
+	      var newQuery = this.props.location.query;
+	      if (oldQuery.status === newQuery.status) {
+	        return;
+	      }
+	      this.loadData();
+	    }
+	
+	    // takes in a query object and uses the push method of router to change only the query string part
+	    // keeping the pathname the same as before.
+	
+	  }, {
+	    key: 'setFilter',
+	    value: function setFilter(query) {
+	      this.props.router.push({ pathname: this.props.location.pathname, query: query });
 	    }
 	  }, {
 	    key: 'loadData',
@@ -301,7 +322,7 @@ webpackJsonp([0],{
 	          null,
 	          'Issue Tracker'
 	        ),
-	        _react2.default.createElement(_IssueFilter2.default, null),
+	        _react2.default.createElement(_IssueFilter2.default, { setFilter: this.setFilter }),
 	        _react2.default.createElement('hr', null),
 	        _react2.default.createElement(IssueTable, { issues: this.state.issues }),
 	        _react2.default.createElement('hr', null),
@@ -317,7 +338,8 @@ webpackJsonp([0],{
 	
 	
 	IssueList.propTypes = {
-	  location: _react2.default.PropTypes.object.isRequired
+	  location: _react2.default.PropTypes.object.isRequired,
+	  router: _react2.default.PropTypes.object
 	};
 
 /***/ }),
@@ -421,8 +443,6 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(514);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -437,12 +457,34 @@ webpackJsonp([0],{
 	  function IssueFilter() {
 	    _classCallCheck(this, IssueFilter);
 	
-	    return _possibleConstructorReturn(this, (IssueFilter.__proto__ || Object.getPrototypeOf(IssueFilter)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (IssueFilter.__proto__ || Object.getPrototypeOf(IssueFilter)).call(this));
+	
+	    _this.clearFilter = _this.clearFilter.bind(_this);
+	    _this.setFilterOpen = _this.setFilterOpen.bind(_this);
+	    _this.setFilterAssigned = _this.setFilterAssigned.bind(_this);
+	    return _this;
 	  }
 	
 	  _createClass(IssueFilter, [{
+	    key: 'setFilterOpen',
+	    value: function setFilterOpen(e) {
+	      e.preventDefault();
+	      this.props.setFilter({ status: 'Open' });
+	    }
+	  }, {
+	    key: 'setFilterAssigned',
+	    value: function setFilterAssigned(e) {
+	      e.preventDefault();
+	      this.props.setFilter({ status: 'Assigned' });
+	    }
+	  }, {
+	    key: 'clearFilter',
+	    value: function clearFilter(e) {
+	      e.preventDefault();
+	      this.props.setFilter({});
+	    }
+	  }, {
 	    key: 'render',
-	    // eslint-disable-line
 	    value: function render() {
 	      var Separator = function Separator() {
 	        return _react2.default.createElement(
@@ -455,20 +497,20 @@ webpackJsonp([0],{
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/issues' },
+	          'a',
+	          { href: '#', onClick: this.clearFilter },
 	          'All Issues'
 	        ),
 	        _react2.default.createElement(Separator, null),
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: { pathname: '/issues', query: { status: 'Open' } } },
+	          'a',
+	          { href: '#', onClick: this.setFilterOpen },
 	          'Open Issues'
 	        ),
 	        _react2.default.createElement(Separator, null),
 	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/issues?status=Assigned' },
+	          'a',
+	          { href: '#', onClick: this.setFilterAssigned },
 	          'Assigned Issues'
 	        )
 	      );
@@ -479,6 +521,11 @@ webpackJsonp([0],{
 	}(_react2.default.Component);
 	
 	exports.default = IssueFilter;
+	
+	
+	IssueFilter.propTypes = {
+	  setFilter: _react2.default.PropTypes.func.isRequired
+	};
 
 /***/ }),
 
