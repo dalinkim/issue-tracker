@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Redirect, hashHistory, withRouter } from 'react-router';
+import { Router, Route, Redirect, browserHistory, withRouter } from 'react-router';
 
 import IssueList from './IssueList.jsx';
 import IssueEdit from './IssueEdit.jsx';
@@ -28,11 +28,11 @@ App.propTypes = {
   children: React.PropTypes.object.isRequired,
 };
 
-// kind of history to use, hashHistory from react-router
+// kind of history to use, browserHistory from react-router
 // wrapping IssueList with withRouter
 // IssueList can use this.props.router to access the router object.
 const RoutedApp = () => (
-  <Router history={hashHistory} >
+  <Router history={browserHistory} >
     <Redirect from="/" to="issues" />
     <Route path="/" component={App} >
       <Route path="/issues" component={withRouter(IssueList)} />
