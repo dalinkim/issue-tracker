@@ -64,6 +64,7 @@ export default class IssueList extends React.Component {
     // must bind this method in the constructor since
     // it's not being called from another component
     // (so that the this variable during the call will be the calling component.)
+    this.setFilter = this.setFilter.bind(this);
   }
 
   componentDidMount() {
@@ -77,6 +78,12 @@ export default class IssueList extends React.Component {
       return;
     }
     this.loadData();
+  }
+
+  // takes in a query object and uses the push method of router to change only the query string part
+  // keeping the pathname the same as before.
+  setFilter(query) {
+    this.props.router.push({ pathname: this.props.location.pathname, query });
   }
 
   loadData() {
@@ -132,7 +139,7 @@ export default class IssueList extends React.Component {
     return (
       <div>
         <h1>Issue Tracker</h1>
-        <IssueFilter />
+        <IssueFilter setFilter={this.setFilter} />
         <hr />
         <IssueTable issues={this.state.issues} />
         <hr />
@@ -144,4 +151,5 @@ export default class IssueList extends React.Component {
 
 IssueList.propTypes = {
   location: React.PropTypes.object.isRequired,
+  router: React.PropTypes.object,
 };
