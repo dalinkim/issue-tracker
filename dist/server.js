@@ -74,7 +74,29 @@ app.post('/api/issues', (req, res) => {
   });
 });
 
-// new express route has to be placed after all the other routes
+// new Express route for Get API
+app.get('/api/issues/:id', (req, res) => {
+  let issueId;
+  try {
+    issueId = new _mongodb.ObjectId(req.params.id);
+  } catch (error) {
+    res.status(422).json({ message: `Invalid issue ID format: ${error}` });
+    return;
+  }
+
+  db.collection('issues').find({ _id: issueId }).limit(1).next().then(issue => {
+    if (!issue) {
+      res.status(404).json({ message: `No such issue: ${issueId}` });
+    } else {
+      res.json(issue);
+    }
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({ message: `Internal Server Error: ${error}` });
+  });
+});
+
+// new Express route has to be placed after all the other routes
 // so that it gets resolved only if none of the previous routes match
 // resolve is also used because sendFile accepts only absolute paths.
 app.get('*', (req, res) => {
