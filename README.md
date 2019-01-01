@@ -218,6 +218,8 @@ Modify IssueFilter to render with the filter form. onChange events from each of 
 Get API to retrieve a single issue and display it in the edit page. To get a single resource, REST dictates that we need an API of the form /api/issues/issue_id. In the handler, get the ID as a parameter in the request object (req.params.id), convert the string ID to MongoDB ObjectID, and then retrieve a single record returning the document as a JSON in the document.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/09-edit-page">09-edit-page</a><br>
+Create a form to display all the values of the issue with the editable fields as form inputs. Make these controlled components by connecting them to an object in the state called issue. Make a common method called onChange and supply the name property to each input to differentiate between them. <br>
+load() method to fetch the issue properties using the Get API, which is called from componentDidMount() and componentDidUpdate() <br>Fields need to be converted to strings to be edited.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/09-ui-components-number-input">09-ui-components-number-input</a><br>
 
