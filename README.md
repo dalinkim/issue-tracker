@@ -202,3 +202,27 @@ IndexRoute component can be used to indicate that a particular component needs t
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-browser-history">08-browser-history</a><br>
 Using browser history is recommended because 1) URL looks cleaner and easier to read and 2) if you need to do server-side rendering, hash-based method will not work as the hash-anchor is just a location within the page so bots cannot crawl.
+
+<b>Chapter 9. Forms</b><br>
+Creating more flexible filter based on user input, filling in the edit page with a form, and adding ability to delete issues from IssueList page.<br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/09-more-filters-in-list-api">09-more-filters-in-list-api</a><br>
+Adding filter for the integer field, effort; Comparison operators need to be specfied as an object with the key being the operator so multiple operators can be added for the same field.<br>MongoDB is strict about data types so need to convert the query parameters to an integer before setting the effort value in the filter.
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/09-filter-form">09-filter-form</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/09-get-api">09-get-api</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/09-edit-page">09-edit-page</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/09-ui-components-number-input">09-ui-components-number-input</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/09-ui-components-date-input">09-ui-components-date-input</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/09-update-api">09-update-api</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/09-using-update-api">09-using-update-api</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/09-delete-api">09-delete-api</a><br>
+
+<a href="https://github.com/dalinkim/issue-tracker/tree/09-using-delete-api">09-using-delete-api</a><br>
