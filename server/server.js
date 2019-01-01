@@ -5,6 +5,7 @@ import SourceMapSupport from 'source-map-support';
 SourceMapSupport.install();
 import 'babel-polyfill';
 
+import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
 import { MongoClient } from 'mongodb';
@@ -55,6 +56,13 @@ app.post('/api/issues', (req, res) => {
     console.log(error);
     res.status(500).json({ message: `Internal Server Error: ${error}` });
   });
+});
+
+// new express route has to be placed after all the other routes
+// so that it gets resolved only if none of the previous routes match
+// resolve is also used because sendFile accepts only absolute paths.
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('static/index.html'));
 });
 
 MongoClient.connect('mongodb://localhost/issuetracker').then(connection => {

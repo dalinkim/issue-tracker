@@ -32,6 +32,9 @@ module.exports = {
         target: 'http://localhost:3000',
       },
     },
+    // server needs to return the one and only real page in an SPA, index.html
+    // historyApiFallback flag handles this correctly.
+    historyApiFallback: true,
   },
   devtool: 'source-map',
 };
