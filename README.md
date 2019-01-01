@@ -222,6 +222,8 @@ Create a form to display all the values of the issue with the editable fields as
 load() method to fetch the issue properties using the Get API, which is called from componentDidMount() and componentDidUpdate() <br>Fields need to be converted to strings to be edited.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/09-ui-components-number-input">09-ui-components-number-input</a><br>
+To have the form's state to store the fields in their natural data types and all of the data type conversion routines to be shared, resuable UI components are made for the no-string inputs, which emit natural data types in their onChange handlers.<br>
+<b>Number Input:</b> First, separate the two states: 1) value of the persisted issue's field and 2) transient value, which is the state while it's being edited by the user. Transient state and other things needed to manage the editing and conversion within a UI component, NumInput. Hook into the event of losing input focus from the input using onBlur() handler. The onblur event occurs when an object loses focus and is most often used with form validation code (e.g. when the user leaves a form field).
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/09-ui-components-date-input">09-ui-components-date-input</a><br>
 
