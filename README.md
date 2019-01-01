@@ -3,7 +3,7 @@
 Full stack web application development with Mongo, Express, React, and Node. <br>
 Following examples from Pro MERN Stack by Vasan Subramanian
 
-<b>Chapter 2. Hello World</b><br>
+<mark><b>Chapter 2. Hello World</b></mark><br>
 <a href="https://github.com/dalinkim/issue-tracker/tree/02-server-less-hello-world">02-server-less-hello-world</a><br> index.html; ReactDOM library renders the componenet within the contentNode. <br>
 Babel library is a JSX transformer. (Browser-based compiler used here)
 
@@ -33,7 +33,7 @@ Not all browsers uniformly support ES2015 spec. <br>
 Transpiling: conversion from one spec of JS to another. (Babel: from ES2015 to ES5) <br>
 Polyfills: things that supplement browser capabilities or global functions to use new features of ES2015 (Promise, array find(), and etc.) -> babel-polyfill = emulates a full ES2015 environment.
 
-<b>Chapter 3. React Components</b><br>
+<mark><b>Chapter 3. React Components</b></mark><br>
 <a href="https://github.com/dalinkim/issue-tracker/tree/03-react-classes">03-react-classes</a><br>
 src/App.jsx; IssueList extends React.Component <br>
 React classe allows creating real components, which can be reused within other components, handle events, and etc. render() method must be present in the class to display the component.<br>
@@ -51,7 +51,7 @@ child(IssueRow): {this.props.issue_title}; parent(IssueTable): IssueRow issue_ti
 <a href="https://github.com/dalinkim/issue-tracker/tree/03-dynamic-composition">03-dynamic-composition</a><br>
 src/App.jsx; IssueList passing the 'issue' array as a property to IssueTable. IssueTable issues={issues}; const issue = this.props.issue; <br> static/index.html; moved inline styles from App.jsx to index.html
 
-<b>Chapter 4. React State</b><br>
+<mark><b>Chapter 4. React State</b><br></mark>
 <a href="https://github.com/dalinkim/issue-tracker/tree/04-setting-state">04-setting-state</a><br>
 src/App.jsx; To make components that respond to user input and other events, React uses a data structure, state, in the component. It is only the change of state that can change the rendered view. React treats the component as a simple state machine.<br> setState(), initialization done in the constructor. <br>
 Declarative programming paradigm. Mutate the model state, and the view rerenders. But you should not modify the state directly.<br>
@@ -81,7 +81,7 @@ Parents communicate to children via props; when state changes, the props automat
 Children communicate to parents via callbacks.<br>
 In a well-designed application, most components are stateless functions of their properties<br>
 
-<b>Chapter 5. Express REST APIs</b><br>
+<mark><b>Chapter 5. Express REST APIs</b><br></mark>
 <b>REST (representational state transfer)</b>
 REST is an architectural pattern for APIs.<br>
 APIs are resource based. Resource are accessed based on URI, aka endpoint. Typically use two URIs per resource: one for collection (/customers) and one for object (/customers/123). Resources can also form a hierarchy. (/customers/123/orders, /customers/123/orders/43)<br>
@@ -112,7 +112,7 @@ src/App.jsx; Use Create API to modify the createIssue() method. Instead of direc
 server.js; As for server-side application-level validation, missing required fields and incorrect list values will be handled by simply setting the status using res.status() and sending the error message as the response. In the app.post's handler, validation function is called and in case of error, an object with an appropriate message is sent back.<br>
 /src/App.jsx; As for client-side error handling, createIssue() method is modified to detect a non-success HTTP status code. Fetch API does not throw an error for failure HTTP status codes so cannot rely on catch section. The response's property, response.ok, must be checked. If not okay, error.
 
-<b>Chapter 6. Using MongoDB</b><br>
+<mark><b>Chapter 6. Using MongoDB</b><br></mark>
 MongoDB is a document database. (Record is a document or an object) A document is a data structure composed of field and value pairs. Primary key is mandated in MongoDB with the reserved field name, _id.
 MongoDB query language is made up of methods to achieve various operations.
 
@@ -132,7 +132,7 @@ src/App.jsx; updating id to _id, even List API can return a non-successful HTTP 
 <a href="https://github.com/dalinkim/issue-tracker/tree/06-write-to-mongodb">06-write-to-mongodb</a><br>
 server.js; modify Create API to wrote to MongoDB, clean up validations, and remove in-memory array
 
-<b>Chapter 7. Modularization and Webpack</b><br>
+<mark><b>Chapter 7. Modularization and Webpack</b><br></mark>
 <a href="https://github.com/dalinkim/issue-tracker/tree/07-server-side-modules">07-server-side-modules</a><br>
 server/issue.js; separating Issue object into its own file and exporting using module.exports
 
@@ -174,7 +174,7 @@ require hook binds itself to Node.js' require and dynamically compiles any new m
 A linter (something that lints) checks for suspicious code that may be a bug. It can also check whether your code adheres to conventions and standards that you want to follow accross your team to make the code predictably readable. ESLint is a flexible linter that lets you define the rules that you want to follow.<br>
 ESLint requires that the configuration and the rules to apply be specified in a started file, .eslintrc. ESLint needs to be told that a certain file is being used in a certain environment.
 
-<b>Chapter 8. React Router</b><br>
+<mark><b>Chapter 8. React Router</b><br></mark>
 Chapter reviews the concept of routing, or handling multiple pages that need to be displayed.<br>
 A single-page application has multiple logical pages within the application. It's just that the page load happens only the first time; after that, each of the other views is loaded by manipulating or changing the DOM. Need routing to navigate between different views.<br>
 Routing techniques: two ways to connect a page to something that the browser recognizes and indicates that "this is the page that the user is viewing." - 1. Hash-based (using the anchor portion of the URL, everything following the #) 2. Push state aka browser history (new HTML5 API that lets JS handle the page transitions at the same time preventing the browser from reloading the page when the URL changes.)<br>
@@ -203,13 +203,16 @@ IndexRoute component can be used to indicate that a particular component needs t
 <a href="https://github.com/dalinkim/issue-tracker/tree/08-browser-history">08-browser-history</a><br>
 Using browser history is recommended because 1) URL looks cleaner and easier to read and 2) if you need to do server-side rendering, hash-based method will not work as the hash-anchor is just a location within the page so bots cannot crawl.
 
-<b>Chapter 9. Forms</b><br>
+<mark><b>Chapter 9. Forms</b><br></mark>
 Creating more flexible filter based on user input, filling in the edit page with a form, and adding ability to delete issues from IssueList page.<br>
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/09-more-filters-in-list-api">09-more-filters-in-list-api</a><br>
 Adding filter for the integer field, effort; Comparison operators need to be specfied as an object with the key being the operator so multiple operators can be added for the same field.<br>MongoDB is strict about data types so need to convert the query parameters to an integer before setting the effort value in the filter.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/09-filter-form">09-filter-form</a><br>
+One option to get a user input is to get it the conventional HTML way (i.e. IssueAdd with onClick)<br>
+Another way is to supply a value that is a variable, something that is part of React's state. This connects a state variable to the value that is displayed. Form components that have their value bound to the state are called <i>controlled</i> components. If not bound (i.e. IssueAdd), they are uncontrolled.<br>
+Modify IssueFilter to render with the filter form. onChange events from each of the inputs are handled by setting the state variable to the event target's value.
 
 <a href="https://github.com/dalinkim/issue-tracker/tree/09-get-api">09-get-api</a><br>
 
